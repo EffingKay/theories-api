@@ -9,4 +9,3 @@ module.exports = mongoose.model('Theory', theorySchema);
 
 // possible ideas
  // add comments
- // add user (essential, not a must tho)

@@ -17,7 +17,7 @@ async.waterfall([
     function createCandidates(done) {
         Theory.create([
             {
-                content: 'Cercei gives birth. To triplets. They look Braavosi. Jamies\' uber pissed.',
+                content: 'Cercei gives birth. To triplets. They look Braavosi. Jamie\'s uber pissed.',
                 upvotes: 2
             },
             {

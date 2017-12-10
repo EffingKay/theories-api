@@ -8,8 +8,26 @@ function theoriesIndex(req, res) {
     });
 }
 
+function theoriesCreate(req, res) {
+    const theory = new Theory(req.body);
+    theory.save((err, theory) => {
+        if (err) return res.status(500).json({ message: 'Something went wrong.' });
+        return res.status(201).json(theory);
+    });
+}
+
+function theoriesDelete(req, res){
+    Theory.findByIdAndRemove(req.params.id, (err,theory) => {
+        if (err) return res.status(500).json({ message: 'Something went wrong.' });
+        if (!theory) return res.status(404).json({ message: 'Theory not found.' });
+        return res.sendStatus(204);
+    });
+  }
+
 module.exports = {
-    index: theoriesIndex
+    index: theoriesIndex,
+    create: theoriesCreate,
+    delete: theoriesDelete
 };
 
 
