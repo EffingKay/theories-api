@@ -6,6 +6,3 @@ const theorySchema = mongoose.Schema({
 });
 
 module.exports = mongoose.model('Theory', theorySchema);
-
-// possible ideas
- // add comments
