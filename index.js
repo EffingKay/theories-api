@@ -15,6 +15,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', routes);
-app.use(cors())
+app.use(cors());
 
 app.listen(config.port, () => console.log(`Server has started on port ${config.port}`));

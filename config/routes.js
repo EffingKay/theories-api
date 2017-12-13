@@ -8,5 +8,7 @@ router.route('/theories')
 
 router.route('/theories/:id')
     .delete(theories.delete)
+    .patch(theories.update)
+    .put(theories.update)
 
 module.exports = router;

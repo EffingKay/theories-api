@@ -22,11 +22,21 @@ function theoriesDelete(req, res){
         if (!theory) return res.status(404).json({ message: 'Theory not found.' });
         return res.sendStatus(204);
     });
-  }
+}
+
+function theoriesUpdate(req, res){
+    Theory
+    .findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, theory) => {
+      if (err) return res.status(500).json({ message: 'Something went wrong.' });
+      if (!theory) return res.status(404).json({ message: 'Theory not found' });
+      return res.status(200).json(theory);
+    });
+}
 
 module.exports = {
     index: theoriesIndex,
     create: theoriesCreate,
+    update: theoriesUpdate,
     delete: theoriesDelete
 };
 
