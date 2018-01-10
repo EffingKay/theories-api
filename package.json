@@ -10,11 +10,15 @@
   "author": "Klaudia",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.2",
+    "express-jwt": "^5.3.0",
     "forever": "^0.15.3",
+    "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.13.6",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "validator": "^9.2.0"
   }
 }
