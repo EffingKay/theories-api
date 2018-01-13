@@ -5,9 +5,9 @@ const config = require('../config/config');
 function authenticationsRegister(req, res){
     User.create(req.body, (err, user) => {
       if (err) {
-        if (err.code === 11000) return res.status(500).json({errorMeesage: 'Username is already taken.'});
-        if (err.errors.password) return res.status(500).json({ errorMeesage: err.errors.password.message});
-        if (err.errors.passwordConfirmation) return res.status(500).json({ errorMeesage: err.errors.passwordConfirmation.message});
+        if (err.code === 11000) return res.status(401).json({errorMeesage: 'Username is already taken.'});
+        if (err.errors.password) return res.status(401).json({ errorMeesage: err.errors.password.message});
+        if (err.errors.passwordConfirmation) return res.status(401).json({ errorMeesage: err.errors.passwordConfirmation.message});
         return res.status(500).json({ errorMessage: 'Something went wrong.' });
       } 
   
