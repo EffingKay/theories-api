@@ -1,10 +1,10 @@
 const Theory = require('../models/theory');
 
 function theoriesIndex(req, res) {
-    Theory.find((err, theories) => {
+    var query = Theory.find({}, null, {sort: {'createdAt': -1}});
+    query.exec((err, theories) => {
         if (err) return res.status(500).json({ message: 'Something went wrong'});
-        // sortTheories(theories);
-        return res.status(200).json(theories)
+        return res.status(200).json(theories);
     });
 }
 

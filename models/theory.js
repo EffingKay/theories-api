@@ -4,6 +4,8 @@ const theorySchema = mongoose.Schema({
     content: { type: String, trim: true, required: true },
     upvotes: { type: Number },
     user: { type: mongoose.Schema.ObjectId, ref: 'User' },    
+}, {
+    timestamps: true
 });
 
 theorySchema.set('toJSON', {
