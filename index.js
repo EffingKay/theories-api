@@ -21,7 +21,8 @@ app.use('/', expressJWT({ secret: config.secret })
             { url: '/register', methods: ['POST'] },
             { url: '/login',    methods: ['POST'] },
             { url: '/theories', methods: ['GET'] },    
-            { url: '/', methods: ['GET'] },                
+            { url: '/', methods: ['GET'] },
+            { url: '/users/:id', methods: ['GET'] },            
         ]
     }));
 app.use(jwtErrorHandler);
