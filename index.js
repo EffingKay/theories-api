@@ -22,7 +22,7 @@ app.use('/', expressJWT({ secret: config.secret })
             { url: '/login',    methods: ['POST'] },
             { url: '/theories', methods: ['GET'] },    
             { url: '/', methods: ['GET'] },
-            { url: '/users/:id', methods: ['GET'] },            
+            { url: '/users/:id', methods: ['GET'] },
         ]
     }));
 app.use(jwtErrorHandler);

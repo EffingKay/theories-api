@@ -5,7 +5,8 @@ const validator = require('validator');
 const userSchema = new mongoose.Schema({
    username: { type: String, trim: true, required: true, unique: true },
    passwordHash: { type: String, unique: true, required: true },
-   theories: [{ type: mongoose.Schema.ObjectId, ref: 'Theory' }]
+   theories: [{ type: mongoose.Schema.ObjectId, ref: 'Theory' }],
+   liked: [{type: mongoose.Schema.ObjectId, ref: 'Theory'}]
 });
 
 userSchema
