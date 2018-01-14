@@ -5,9 +5,9 @@ const config = require('../config/config');
 function authenticationsRegister(req, res){
     User.create(req.body, (err, user) => {
       if (err) {
-        if (err.code === 11000) return res.status(401).json({errorMeesage: 'Username is already taken.'});
-        if (err.errors.password) return res.status(401).json({ errorMeesage: err.errors.password.message});
-        if (err.errors.passwordConfirmation) return res.status(401).json({ errorMeesage: err.errors.passwordConfirmation.message});
+        if (err.code === 11000) return res.status(401).json({errorMessage: 'Username is already taken.'});
+        if (err.errors.password) return res.status(401).json({ errorMessage: err.errors.password.message});
+        if (err.errors.passwordConfirmation) return res.status(401).json({ errorMessage: err.errors.passwordConfirmation.message});
         return res.status(500).json({ errorMessage: 'Something went wrong.' });
       } 
   
@@ -23,7 +23,7 @@ function authenticationsRegister(req, res){
   
 function authenticationsLogin(req, res){
     User.findOne({ username: req.body.username }, (err, user) => {
-      if (err) return res.status(500).json({ errorMeesage: 'Something went wrong.' });
+      if (err) return res.status(500).json({ errorMessage: 'Something went wrong.' });
       if (!user || !user.validatePassword(req.body.password)) {
         return res.status(401).json({ errorMessage: 'Invalid username or password.' });
       }
