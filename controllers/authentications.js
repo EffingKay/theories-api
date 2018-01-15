@@ -11,7 +11,7 @@ function authenticationsRegister(req, res){
         return res.status(500).json({ errorMessage: 'Something went wrong.' });
       } 
   
-      const token = jwt.sign({ id: user.id, username: user.username }, config.secret, { expiresIn: 60*60*24*365 });
+      const token = jwt.sign({ id: user.id, username: user.username }, config.secret);
   
       return res.status(201).json({
         message: `Welcome ${user.username}!`,
