@@ -8,15 +8,6 @@ function theoriesIndex(req, res) {
     });
 }
 
-// function theoriesIndex(req, res) {
-//     Theory.find({})
-//     .populate('user')
-//     .exec((err, theories) => {
-//       if(err) return res.status(500).json({ message: 'Something went wrong.' });
-//       return res.status(200).json(theories);
-//     });
-// }
-
 function theoriesCreate(req, res) {
     const theory = new Theory(req.body);
     theory.save((err, theory) => {
