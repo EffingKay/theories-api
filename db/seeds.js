@@ -39,17 +39,17 @@ async.waterfall([
             {
                 user: user[0]._id,                
                 content: 'Cercei gives birth. To triplets. They look Braavosi. Jamie\'s uber pissed.',
-                upvotes: 2,
+                upvotes: 0,
             },
             {
                 user: user[0]._id,                
-                content: 'After Danny and Jon found out their aunt/nephew they split up. Danny starts dating Tyrion only to later discover his her long lost brother. Ooops.',
-                upvotes: 10,
+                content: 'After Danny and Jon found out they\'re aunt/nephew they split up. Danny starts dating Tyrion only to later discover his her long lost brother. Ooops.',
+                upvotes: 0,
             },
             {
                 user: user[1]._id,               
                 content: 'Khal Drogo comes back to life and challenges Viserion to duel to avenge the Wall.',
-                upvotes: 4,
+                upvotes: 0,
             }
         ], (err, theories, users) => {
            if (err) {
