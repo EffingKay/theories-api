@@ -62,7 +62,7 @@ var isPreflight = function(req) {
     allowCredentials: true,
     shortCircuit: true,
     allowMethods: ['GET', 'DELETE', 'PUT', 'PATCH', 'POST'],
-    allowHeaders: ['Timezone-Offset'],
+    allowHeaders: '*',
     maxAge: 120,
     exposeHeaders: ['X-Powered-By']
   };
@@ -114,7 +114,6 @@ var isPreflight = function(req) {
   };
 
 app.use(handleCors(corsOptions));  
-
-// app.use(cors());
+app.use(cors());
 
 app.listen(config.port, () => console.log(`Server has started on port ${config.port}`));
