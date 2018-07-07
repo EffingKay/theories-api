@@ -4,6 +4,7 @@ function theoriesIndex(req, res) {
     var query = Theory.find({}, null, {sort: {'createdAt': -1}});
     query.exec((err, theories) => {
         if (err) return res.status(500).json({ message: 'Something went wrong'});
+        res.set('Access-Control-Allow-Origin', '*');        
         return res.status(200).json(theories);
     });
 }
@@ -30,7 +31,6 @@ function theoriesShow(req, res) {
         .exec((err, theory) => {
             if (err) return res.status(500).json({ message: 'Something went wrong.' });
             if (!theory) return res.status(404).json({ message: 'theory not found.' });
-            console.log(theory.user)
             return res.status(200).json(theory);
         });
 }
