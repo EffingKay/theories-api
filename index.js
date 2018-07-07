@@ -32,8 +32,14 @@ function jwtErrorHandler(err, req, res, next){
     return res.status(401).json({ message: 'Unauthorized request.' });
 }
 
-app.use(cors());
-app.options('*', cors());
+const corsOptions = {
+    origin: 'https://gotheory.netlify.com/',
+    allowedHeaders: ['Authorization', 'Content-Type'],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE, OPTIONS",    
+}
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 app.use('/', routes);
 
 app.listen(config.port, () => console.log(`Server has started on port ${config.port}`));
