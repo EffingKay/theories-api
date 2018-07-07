@@ -41,28 +41,29 @@ var isPreflight = function(req) {
     return isHttpOptions && hasOriginHeader && hasRequestMethod;
   };
   
-//   var createWhitelistValidator = function(whitelist) {
-//     return function(val) {
-//       for (var i = 0; i < whitelist.length; i++) {
-//         if (val === whitelist[i]) {
-//           return true;
-//         }
-//       }
-//       return false;
-//     }
-//   };
+  var createWhitelistValidator = function(whitelist) {
+    return function(val) {
+      for (var i = 0; i < whitelist.length; i++) {
+        if (val === whitelist[i]) {
+          return true;
+        }
+      }
+      return false;
+    }
+  };
   
-//   var originWhitelist = [
-//     'null',
-//     '*'
-//   ];
+    var originWhitelist = [
+        'null',
+        'https://gotheory.netlify.com/*',
+        'https://localhost:3000/*'
+    ];
   
   var corsOptions = {
-    allowOrigin: '*',
+    allowOrigin: createWhitelistValidator(originWhitelist),
     allowCredentials: true,
     shortCircuit: true,
-    allowMethods: ['GET', 'DELETE', 'PUT', 'PATCH', 'POST'],
-    allowHeaders: '*',
+    allowMethods: ['GET', 'DELETE', 'OPTIONS', 'POST', 'PUT', 'PATCH'],
+    allowHeaders: ['Timezone-Offset'],
     maxAge: 120,
     exposeHeaders: ['X-Powered-By']
   };
