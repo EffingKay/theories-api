@@ -43,7 +43,7 @@ async.waterfall([
             },
             {
                 user: user[0]._id,                
-                content: 'After Danny and Jon found out they\'re aunt/nephew they split up. Danny starts dating Tyrion only to later discover his her long lost brother. Ooops.',
+                content: 'After Danny and Jon found out they\'re aunt/nephew they split up. Danny starts dating Tyrion only to later discover he\'s her long lost brother. Ooops.',
                 upvotes: 0,
             },
             {
