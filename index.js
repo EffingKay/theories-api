@@ -32,18 +32,17 @@ function jwtErrorHandler(err, req, res, next){
     return res.status(401).json({ message: 'Unauthorized request.' });
 }
 
-const corsOptions = {
-    origin: 'https://gotheory.netlify.com',
-    allowedHeaders: ['Authorization', 'Content-Type'],
-    methods: "POST, GET, HEAD, PUT, PATCH",   
-    credentials: true,
-    preflightContinue: false, 
-    maxAge: 600,
-    optionsSuccessStatus: 200,
-}
+// const corsOptions = {
+//     origin: 'https://gotheory.netlify.com',
+//     allowedHeaders: ['Authorization', 'Content-Type'],
+//     methods: "POST, GET, HEAD, PUT, PATCH",   
+//     credentials: false,
+//     maxAge: 600,
+//     optionsSuccessStatus: 200,
+// }
 
 app.options('*', cors());
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use('/', routes);
 
