@@ -33,13 +33,18 @@ function jwtErrorHandler(err, req, res, next){
 }
 
 const corsOptions = {
-    origin: 'https://gotheory.netlify.com/',
+    origin: 'https://gotheory.netlify.com',
     allowedHeaders: ['Authorization', 'Content-Type'],
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE, OPTIONS",    
+    methods: "POST, GET, HEAD, PUT, PATCH",   
+    credentials: true,
+    preflightContinue: false, 
+    maxAge: 600,
+    optionsSuccessStatus: 200,
 }
 
+app.options('*', cors());
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+
 app.use('/', routes);
 
-app.listen(config.port, () => console.log(`Server has started on port ${config.port}`));
+app.listen(config.port, () => console.log(`CORS-enabled server has started on port ${config.port}`));
