@@ -9,6 +9,9 @@ const routes     = require('./config/routes');
 
 const app = express();
 
+app.options('*', cors());
+app.use(cors());
+
 mongoose.connect(config.db, { useMongoClient: true });
 
 app.use(morgan('dev'));
@@ -31,18 +34,6 @@ function jwtErrorHandler(err, req, res, next){
     if (err.name !== 'UnauthorizedError') return next();
     return res.status(401).json({ message: 'Unauthorized request.' });
 }
-
-// const corsOptions = {
-//     origin: 'https://gotheory.netlify.com',
-//     allowedHeaders: ['Authorization', 'Content-Type'],
-//     methods: "POST, GET, HEAD, PUT, PATCH",   
-//     credentials: false,
-//     maxAge: 600,
-//     optionsSuccessStatus: 200,
-// }
-
-app.options('*', cors());
-app.use(cors());
 
 app.use('/', routes);
 
