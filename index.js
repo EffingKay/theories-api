@@ -4,6 +4,7 @@ const morgan     = require('morgan');
 const mongoose   = require('mongoose');
 const cors       = require('cors');
 const expressJWT = require('express-jwt');
+const helmet     = require('helmet');
 const config     = require('./config/config');
 const routes     = require('./config/routes');
 
@@ -11,6 +12,7 @@ const app = express();
 
 app.options('*', cors());
 app.use(cors());
+app.use(helmet());
 
 mongoose.connect(config.db, { useMongoClient: true });
 
