@@ -39,6 +39,9 @@ function jwtErrorHandler(err, req, res, next){
     return res.status(401).json({ message: 'Unauthorized request.' });
 }
 
+app.get('/', function(req, res) {
+    res.send({status: 'ok'});
+});
 app.use('/', routes);
 
 app.listen(config.port, () => console.log(`CORS-enabled server has started on port ${config.port}`));
