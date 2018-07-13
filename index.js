@@ -1,5 +1,6 @@
-const express    = require('express');
 require('sqreen');
+require ('newrelic');
+const express    = require('express');
 const bodyParser = require('body-parser');
 const morgan     = require('morgan');
 const mongoose   = require('mongoose');
