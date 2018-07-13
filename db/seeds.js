@@ -19,12 +19,7 @@ async.waterfall([
     function createUsers(done) {
         User.create([
             {
-                username: 'kay',
-                password: 'password',
-                passwordConfirmation: 'password',
-            },
-            {
-                username: 'khaleesi',
+                username: 'klaudia',
                 password: 'password',
                 passwordConfirmation: 'password',
             }
@@ -47,7 +42,7 @@ async.waterfall([
                 upvotes: 0,
             },
             {
-                user: user[1]._id,               
+                user: user[0]._id,               
                 content: 'Khal Drogo comes back to life and challenges Viserion to duel to avenge the Wall.',
                 upvotes: 0,
             }
