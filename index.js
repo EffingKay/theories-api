@@ -15,6 +15,9 @@ const app = express();
 app.options('*', cors());
 app.use(cors());
 app.use(helmet());
+app.use(helmet.referrerPolicy({ 
+    policy: 'same-origin' 
+}));
 
 mongoose.connect(config.db, { useMongoClient: true });
 
