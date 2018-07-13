@@ -1,4 +1,5 @@
 const express    = require('express');
+require('sqreen');
 const bodyParser = require('body-parser');
 const morgan     = require('morgan');
 const mongoose   = require('mongoose');
