@@ -20,7 +20,10 @@ app.use(helmet.referrerPolicy({
 }));
 app.use(helmet.contentSecurityPolicy({
     directives: {
-      defaultSrc: ["'self'"],
+      baseUri: ["'self"],
+      defaultSrc: ["'none'"],
+      formAction: ["'none"],
+      frameAncestors: ["'none"]
     }
   }))
 
