@@ -38,7 +38,7 @@ app.use('/', expressJWT({ secret: config.secret })
         path: [
             { url: '/register', methods: ['POST'] },
             { url: '/login',    methods: ['POST'] },
-            { url: '/theories', methods: ['GET'] },    
+            { url: '/theories', methods: ['GET', 'POST'] },    
             { url: '/', methods: ['GET'] },
             { url: '/users/:id', methods: ['GET'] },
         ]

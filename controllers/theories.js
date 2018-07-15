@@ -4,7 +4,6 @@ function theoriesIndex(req, res) {
     var query = Theory.find({}, null, {sort: {'createdAt': -1}});
     query.exec((err, theories) => {
         if (err) return res.status(500).json({ message: 'Something went wrong'});
-        res.set('Access-Control-Allow-Origin', '*');        
         return res.status(200).json(theories);
     });
 }
